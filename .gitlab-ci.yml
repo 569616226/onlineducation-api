@@ -1,0 +1,10 @@
+stages:
+- develop
+deploy:
+  stage: develop
+  script:
+    - deploy4 public_html onlineducation-api
+  only:
+    - develop
+  tags:
+    - develop

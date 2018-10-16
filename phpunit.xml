@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         printerClass="Codedungeon\PHPUnitPrettyResultPrinter\Printer"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite>
+
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <env name="APP_ENV"             value="testing"/>
+        <env name="CACHE_DRIVER"        value="redis"/>
+        <env name="SESSION_DRIVER"      value="redis"/>
+        <env name="QUEUE_DRIVER"        value="sync"/>
+       
+        <env name="DB_CONNECTION"       value="testing_sqlite_in_memory"/>
+        <env name="DB_HOST"             value="192.168.10.10"/>
+        <env name="DB_PORT"             value="3306"/>
+        <env name="DB_NAME"             value="class"/>
+        <env name="DB_USERNAME"         value="homestead"/>
+        <env name="DB_PASSWORD"         value="secret"/>
+    </php>
+
+        <!--<logging>-->
+            <!--<log type="coverage-html" target="./reports" lowUpperBound="35" highLowerBound="70"/>-->
+        <!--</logging>-->
+
+    </phpunit>
